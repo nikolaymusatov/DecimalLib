@@ -39,11 +39,11 @@ Decimal number is implemented as a four-element array of 32-bit signed integers 
 
 | Operator name | Operators  | Function                                                                           | 
 | ------ | ------ |------------------------------------------------------------------------------------|
-| Addition | + | int s21_add(s21_decimal value_1, s21_decimal value_2, s21_decimal *result)         |
-| Subtraction | - | int s21_sub(s21_decimal value_1, s21_decimal value_2, s21_decimal *result) |
-| Multiplication | * | int s21_mul(s21_decimal value_1, s21_decimal value_2, s21_decimal *result) | 
-| Division | / | int s21_div(s21_decimal value_1, s21_decimal value_2, s21_decimal *result) |
-| Modulo | Mod | int s21_mod(s21_decimal value_1, s21_decimal value_2, s21_decimal *result) |
+| Addition | + | int add(decimal value_1, decimal value_2, decimal *result)         |
+| Subtraction | - | int sub( decimal value_1, decimal value_2, decimal *result) |
+| Multiplication | * | int mul( decimal value_1, decimal value_2, decimal *result) | 
+| Division | / | int div( decimal value_1, decimal value_2, decimal *result) |
+| Modulo | Mod | int mod( decimal value_1, decimal value_2, decimal *result) |
 
 The functions return the error code:
 - 0 - OK
@@ -55,12 +55,12 @@ The functions return the error code:
 
 | Operator name | Operators  | Function | 
 | ------ | ------ | ------ |
-| Less than | < | int s21_is_less(s21_decimal, s21_decimal) |
-| Less than or equal to | <= | int s21_is_less_or_equal(s21_decimal, s21_decimal) | 
-| Greater than | > |  int s21_is_greater(s21_decimal, s21_decimal) |
-| Greater than or equal to | >= | int s21_is_greater_or_equal(s21_decimal, s21_decimal) | 
-| Equal to | == |  int s21_is_equal(s21_decimal, s21_decimal) |
-| Not equal to | != |  int s21_is_not_equal(s21_decimal, s21_decimal) |
+| Less than | < | int is_less(decimal, decimal) |
+| Less than or equal to | <= | int is_less_or_equal(decimal, decimal) | 
+| Greater than | > | int is_greater( decimal, decimal) |
+| Greater than or equal to | >= | int is_greater_or_equal(decimal, decimal) | 
+| Equal to | == | int is_equal(decimal, decimal) |
+| Not equal to | != | int is_not_equal(decimal, decimal) |
 
 Return value:
 - 0 - FALSE
@@ -70,10 +70,10 @@ Return value:
 
 | Convertor/parser | Function | 
 | ------ | ------ |
-| From int  | int s21_from_int_to_decimal(int src, s21_decimal *dst) |
-| From float  | int s21_from_float_to_decimal(float src, s21_decimal *dst) |
-| To int  | int s21_from_decimal_to_int(s21_decimal src, int *dst) |
-| To float  | int s21_from_decimal_to_float(s21_decimal src, float *dst) |
+| From int | int from_int_to_decimal(int src, decimal *dst) |
+| From float | int from_float_to_decimal(float src, decimal *dst) |
+| To int | int from_decimal_to_int(decimal src, int *dst) |
+| To float | int from_decimal_to_float(decimal src, float *dst) |
 
 Return value - code error:
 - 0 - OK
@@ -83,10 +83,10 @@ Return value - code error:
 
 | Description | Function                                                         | 
 | ------ |------------------------------------------------------------------|
-| Rounds a specified Decimal number to the closest integer toward negative infinity. | int s21_floor(s21_decimal value, s21_decimal *result)            |	
-| Rounds a decimal value to the nearest integer. | int s21_round(s21_decimal value, s21_decimal *result)    |
-| Returns the integral digits of the specified Decimal; any fractional digits are discarded, including trailing zeroes. | int s21_truncate(s21_decimal value, s21_decimal *result) |
-| Returns the result of multiplying the specified Decimal value by negative one. | int s21_negate(s21_decimal value, s21_decimal *result)   |
+| Rounds a specified Decimal number to the closest integer toward negative infinity. | int dec_floor(decimal value, decimal *result)            |	
+| Rounds a decimal value to the nearest integer. | int dec_round( decimal value, decimal *result)    |
+| Returns the integral digits of the specified Decimal; any fractional digits are discarded, including trailing zeroes. | int truncate( decimal value, decimal *result) |
+| Returns the result of multiplying the specified Decimal value by negative one. | int negate(decimal value, decimal *result)   |
 
 Return value - code error:
 - 0 - OK
